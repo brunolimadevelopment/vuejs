@@ -14,6 +14,9 @@ export default {
       firstName: 'Jon',
       lastName: 'Snow',
       accessLevel: 'admin',
+      isHome: true,
+      texto: ['texto', 'texto-home'],
+      texto2: { color: 'yellow', 'font-size': '20px' },
       todos: [
         {
           id: 1,
@@ -142,6 +145,12 @@ export default {
 
 <template>
   <div>
+    <!-- Atributos Class e Style dinâmicos -->
+    <h1 :class="{ title: true, 'title-home': isHome }">VueJS</h1>
+    <p :class="texto">Lorem ipsum dolor set amet...</p>
+    <p :style="texto2">Lorem ipsum dolor set amet 2...</p>
+
+    <hr />
     <!-- Loop Example -->
     <h5 class="title">Loop Example</h5>
     <div v-for="(obj, index) in todos" v-bind:key="obj.id" class="todos-item">
@@ -170,6 +179,17 @@ export default {
 <style scoped>
 .title {
   margin: 0;
+}
+.title-home {
+  font-size: 40px;
+  color: green;
+}
+.texto {
+  color: #fff;
+  background: blue;
+}
+.texto-home {
+  color: orange;
 }
 .todos-item {
   background: red;
